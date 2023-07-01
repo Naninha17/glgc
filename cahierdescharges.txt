@@ -1,0 +1,7 @@
+maquette figma format dekstop/mobile
+
+cahier des charges
+
+systemes de routage dynamique, template dynamique, de préférence les routes doivent etre coder de facon dynamique, afin de changer l'url si possible et non en brut comme de le blog de batman. 
+
+creer une interface admin ou guillaume poourra gerer les contenus, les modifier ou supprimer, cette interface doit etre fait en back-office, donc non accessible cotés client. (faire une 403/404 coté client par exemple) et ainsi faire une liaison a la BDD pour le hashage du MDP

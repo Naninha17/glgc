@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{# Définition du titre de la page #}
+{% block title %}Accueil{% endblock %}
+
+{# Remplissage du body de la page #}
+{% block body %}
+
+    {# Logo du site #}
+    <a class="navbar-brand" href="{{ path('main_home') }}">
+        <img class="img-fluid main-navbar-logo cen" src="{{ asset('images/glgc.png') }}" alt="">
+    </a>
+
+    {# Affichage des boutons réservés aux administrateurs #}
+    {% if is_granted('ROLE_ADMIN') %}
+
+    {% endif %}
+
+    {# Grille Bootstrap #}
+    <div class="container-fluid">
+
+        <div class="row">
+
+        <div class="carre d-flex justify-content-center"></div>
+
+            <img class="quadripubimg" src="{{ asset('images/quadripub1.png') }}" alt="Enseigne Quadripub">
+            
+        </div>
+
+    </div>
+
+{% endblock %}

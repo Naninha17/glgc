@@ -1,0 +1,28 @@
+.glgc{
+    width: 400px;
+    background-image: url("../images/glgc.png");
+}
+
+.container-fluid{
+    display: flex;
+    justify-content: space-evenly;
+    height: 200px;
+    margin-top: 100px;
+}
+
+.carre{
+    width: 200px; /* Largeur */
+    height: 230px; /* Hauteur */
+    background-color: #423C3C ; /* Couleur du carré */
+}
+
+.quadripubimg{
+
+    width: 190px; /* Largeur d'image */
+    height: 200px; /* Hauteur d'image */
+    position: inherit;
+    top: 50%; /* Position verticale à 50% du carré */
+    left: 70%; /* Position horizontale à 50% du carré */
+    transform: translate(-70%, -0%); /* Ajuste le positionnement pour centrer l'image */
+    z-index: 1; /* Élévation pour que l'image soit au-dessus du carré */
+}
