@@ -1,26 +1,32 @@
-.glgc{
-    width: 400px;
-    background-image: url("../images/glgc.png");
-}
 
 .container-fluid{
-    display: flex;
-    justify-content: space-evenly;
+    display: flex; /* Rend les éléments de la div flexible */
+    justify-content: space-evenly; /* Permet d'avoir un bon espace réparti */
     height: 200px;
-    margin-top: 100px;
+    margin-top: 100px; /* Permet de ne pas avoir l'image collé au logo */
+}
+
+.navbar-brand{
+    display: flex; /* Logo flexible */
+    justify-content: center; /* centre */
+    align-items: center; /* centre */
+    width: 100%; /* bloc prend 100% de sa largeur */
+    background-color: black;
 }
 
 .carre{
+    /*position: relative;*/
     width: 200px; /* Largeur */
     height: 230px; /* Hauteur */
     background-color: #423C3C ; /* Couleur du carré */
+    /*background-position: 10px 10px;*/
+    /*background-size: 180px 210px;*/
 }
 
 .quadripubimg{
 
-    width: 190px; /* Largeur d'image */
-    height: 200px; /* Hauteur d'image */
-    position: inherit;
+    width: 200px; /* Largeur d'image */
+    height: 210px; /* Hauteur d'image */
     top: 50%; /* Position verticale à 50% du carré */
     left: 70%; /* Position horizontale à 50% du carré */
     transform: translate(-70%, -0%); /* Ajuste le positionnement pour centrer l'image */
