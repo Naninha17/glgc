@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {# Définition du titre de la page #}
-{% block title %}Accueil{% endblock %}
+{% block title %}GLGC{% endblock %}
 
 {# Remplissage du body de la page #}
 {% block body %}
@@ -20,13 +20,57 @@
     <div class="container-fluid">
 
         <div class="row">
+            <div class="col-12 col-md-8 mx-auto my-5">
 
-        <div class="carre d-flex justify-content-center"></div>
+                <div class="carre">
 
-            <img class="quadripubimg" src="{{ asset('images/quadripub1.png') }}" alt="Enseigne Quadripub">
-            
+                    <img class="quadripubimg" src="{{ asset('images/quadripub1.png') }}" alt="Enseigne Quadripub">
+
+                    <img class="logoquadripub" src="{{ asset('images/quadripub.png') }}" alt="Logo Quadripub">
+
+                </div>
+
+            </div>
+
+        </div>
+
+            <div class="row">
+                <h2 class="text-center">Enseigne et signalétique</h2>
+            </div>
+
+            <button type="button" class="btn btn-outline-secondary btn-sm">Voir plus <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+
+        {# Formulaire de contact footer #}
+        <div class="row">
+            <div class="col-12 col-md-4 mx-auto">
+                {# Ouverture du formulaire #}
+                {{ form_start( registrationForm ) }}
+
+                {# Affichage des erreurs générales du formulaire #}
+                {{ form_errors( registrationForm ) }}
+
+                {# Champ name #}
+                {{ form_row( registrationForm.name ) }}
+
+                {# Champ email #}
+                {{ form_row( registrationForm.email ) }}
+
+                {# Champ phone #}
+                {{ form_row( registrationForm.phone ) }}
+
+                {# Champ message #}
+                {{ form_row( registrationForm.message ) }}
+
+                {# Bouton de validation #}
+                {{ form_row( registrationForm.save ) }}
+
+                {# Fermeture du formulaire #}
+                {{ form_end( registrationForm ) }}
+
+            </div>
         </div>
 
     </div>
-
 {% endblock %}

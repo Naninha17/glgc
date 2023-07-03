@@ -1,11 +1,4 @@
 
-.container-fluid{
-    display: flex; /* Rend les éléments de la div flexible */
-    justify-content: space-evenly; /* Permet d'avoir un bon espace réparti */
-    height: 200px;
-    margin-top: 100px; /* Permet de ne pas avoir l'image collé au logo */
-}
-
 .navbar-brand{
     display: flex; /* Logo flexible */
     justify-content: center; /* centre */
@@ -14,21 +7,56 @@
     background-color: black;
 }
 
+.container-fluid .row{
+    display: flex; /* Rend les éléments de la div flexible */
+    justify-content: space-evenly; /* Permet d'avoir un bon espace réparti */
+    height: 200px;
+    margin-top: 100px; /* Permet de ne pas avoir l'image collé au logo */
+}
+
 .carre{
     /*position: relative;*/
-    width: 200px; /* Largeur */
-    height: 230px; /* Hauteur */
+    /*top: 20px;*/
+    /*left: 30px;*/
+    /*width: 200px; !* Largeur *!*/
+    /*height: 230px; !* Hauteur *!*/
+    /*top: 50%; !* Position verticale à 50% du carré *!*/
+    /*left: 70%; !* Position horizontale à 50% du carré *!*/
     background-color: #423C3C ; /* Couleur du carré */
-    /*background-position: 10px 10px;*/
-    /*background-size: 180px 210px;*/
+
 }
 
 .quadripubimg{
 
-    width: 200px; /* Largeur d'image */
-    height: 210px; /* Hauteur d'image */
-    top: 50%; /* Position verticale à 50% du carré */
-    left: 70%; /* Position horizontale à 50% du carré */
-    transform: translate(-70%, -0%); /* Ajuste le positionnement pour centrer l'image */
-    z-index: 1; /* Élévation pour que l'image soit au-dessus du carré */
+
+
+    /*transform: translate(-90%, -5%); !* Ajuste le positionnement pour centrer l'image *!*/
+
+    /*z-index: 1; !* Élévation pour que l'image soit au-dessus du carré *!*/
+    /*width: 200px; !* Largeur d'image *!*/
+    /*height: 210px; !* Hauteur d'image *!*/
+
+    /*width: calc(80% + 25px); !* Ajuste la largeur pour inclure le dépassement *!*/
+    /*height: calc(60% + 80px); !* 60% ajuste la hauteur *!*/
 }
+
+
+/*.logoquadripub {*/
+/*    display: flex;*/
+/*    margin: auto;*/
+/*    height: 100px;*/
+/*    width: 100px;*/
+/*    top: 25%; !* Ajustez la position verticale du logo *!*/
+/*    left: 25%; !* Ajustez la position horizontale du logo *!*/
+/*    transform: translate(-25%, -25%); !* Centre le logo *!*/
+/*    background-color: black;*/
+/*}*/
+
+
+/*.btn {*/
+
+
+
+/*}*/
+
+
