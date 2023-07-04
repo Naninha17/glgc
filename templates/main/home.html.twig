@@ -6,71 +6,80 @@
 {# Remplissage du body de la page #}
 {% block body %}
 
-    {# Logo du site #}
-    <a class="navbar-brand" href="{{ path('main_home') }}">
-        <img class="img-fluid main-navbar-logo" src="{{ asset('images/glgc.png') }}" alt="Logo glgc">
-    </a>
-
-    {# Affichage des boutons réservés aux administrateurs #}
-    {% if is_granted('ROLE_ADMIN') %}
-
-    {% endif %}
-
     {# Grille Bootstrap #}
-    <div class="container-fluid">
-
+    <div class="container"> {# OU container-fluid #}
         <div class="row">
-            <div class="col-12 col-md-8 mx-auto my-5">
+            <div class="col-12">
 
-                <div class="carre">
+                <h2 class="text-center">Enseigne et signalétique</h2>
+                    <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">
+                        <div class="col-12 col-lg-6 col-xl-3  d-flex justify-content-center align-items-center">
 
-                    <img class="quadripubimg" src="{{ asset('images/quadripub1.png') }}" alt="Enseigne Quadripub">
+                        <img class="quadripubimg" src="{{ asset('images/quadripub1.png') }}" style="width: 400px; height: 350px" alt="Enseigne Quadripub">
 
-                    <img class="logoquadripub" src="{{ asset('images/quadripub.png') }}" alt="Logo Quadripub">
+                        <img class="logoquadripub" src="{{ asset('images/quadripub.png') }}" alt="Logo Quadripub">
+                        </div>
+                        <div class="text">
+                            <div class="text col-12 col-lg-8 p-5">
+                                <p class="text">QuadriPub, combine créativité et savoir-faire.<br> Graphistes, enseignistes, webdesigners et poseurs relèvent quotidiennement vos challenges.
+                                </p>
+                                <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
+                <h2 class="text-center">Stratégie et digitale</h2>
+                <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">
+                    <div class="text col-12 col-lg-8 p-5 text-center">
+                        <p class="text">Spécialiste de la communication web, impression, signalétique,<br> réseaux sociaux, agencement...
+                        </p>
+                        <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-3 d-flex justify-content-center align-items-center">
+                        <div class="carre">
+                            <img class="comimg" src="{{ asset('images/Com&Cie.jpg') }}" style="width: 400px; height: 350px" alt="Enseigne Com&Cie">
+                            <img class="logocom" src="{{ asset('images/Group.png') }}" alt="Logo Com&Cie">
+                        </div>
+                    </div>
                 </div>
 
-            </div>
+                <h2 class="text-center">Vêtements Bourguignons</h2>
+                <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">
+                    <div class="col-12 col-lg-6 col-xl-3  d-flex justify-content-center align-items-center">
 
-        </div>
+                        <img class="temeraireimg" src="{{ asset('images/temeraires.jpg') }}" style="width: 400px; height: 350px" alt="Enseigne Téméraires">
 
-            <div class="row">
-                <h2 class="text-center">Enseigne et signalétique</h2>
-            </div>
+                        <img class="logotemeraire" src="{{ asset('images/temeraires.png') }}" alt="Logo Les Téméraires">
+                    </div>
+                    <div class="text">
+                        <div class="text col-12 col-lg-8 p-5">
+                            <p class="text">Marque Bourguignonne sans prétention !
+                                Parce que nous en avions envie, découvrez nos t-shirts.
+                            </p>
+                            <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-            <button type="button" class="btn btn-outline-secondary btn-sm">Voir plus <i class="fa-solid fa-arrow-right"></i>
-            </button>
+                <h2 class="text-center">Design d'espece</h2>
+                <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">
+                    <div class="text col-12 col-lg-8 p-5 text-center">
+                        <p class="text-center">Qui eius voluptatem a esse nostrum sed <br> eius non saepe veritatis sit earum dolorum.
+                        </p>
+                        <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-3 d-flex justify-content-center align-items-center">
+                        <img class="spaceimg" src="{{ asset('images/IMG_6392.png') }}" style="width: 400px; height: 350px" alt="Enseigne Space&Cie">
 
+                        <img class="logospace" src="{{ asset('images/space.png') }}" alt="Logo Space&Cie">
+                    </div>
+                </div>
 
-        {# Formulaire de contact footer #}
-        <div class="row">
-            <div class="col-12 col-md-4 mx-auto">
-                {# Ouverture du formulaire #}
-                {{ form_start( registrationForm ) }}
-
-                {# Affichage des erreurs générales du formulaire #}
-                {{ form_errors( registrationForm ) }}
-
-                {# Champ name #}
-                {{ form_row( registrationForm.name ) }}
-
-                {# Champ email #}
-                {{ form_row( registrationForm.email ) }}
-
-                {# Champ phone #}
-                {{ form_row( registrationForm.phone ) }}
-
-                {# Champ message #}
-                {{ form_row( registrationForm.message ) }}
-
-                {# Bouton de validation #}
-                {{ form_row( registrationForm.save ) }}
-
-                {# Fermeture du formulaire #}
-                {{ form_end( registrationForm ) }}
 
             </div>
         </div>
-
-    </div>
 {% endblock %}

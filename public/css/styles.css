@@ -14,22 +14,21 @@
     margin-top: 100px; /* Permet de ne pas avoir l'image collé au logo */
 }
 
-.carre{
-    /*position: relative;*/
-    /*top: 20px;*/
-    /*left: 30px;*/
-    /*width: 200px; !* Largeur *!*/
-    /*height: 230px; !* Hauteur *!*/
-    /*top: 50%; !* Position verticale à 50% du carré *!*/
-    /*left: 70%; !* Position horizontale à 50% du carré *!*/
-    background-color: #423C3C ; /* Couleur du carré */
+/*.carre{*/
+/*    display: flex;*/
+/*    width: 500px; !* Largeur *!*/
+/*    height: 450px; !* Hauteur *!*/
+/*    !*top: 50%; !* Position verticale à 50% du carré *!*!*/
+/*    !*left: 70%; !* Position horizontale à 50% du carré *!*!*/
+/*    !*top: 20px;*!*/
+/*    !*left: 30px;*!*/
+/*    background-color: #423C3C ; !* Couleur du carré *!*/
 
-}
+/*}*/
 
 .quadripubimg{
-
-
-
+    /*align-items: center;*/
+    /*justify-content: center;*/
     /*transform: translate(-90%, -5%); !* Ajuste le positionnement pour centrer l'image *!*/
 
     /*z-index: 1; !* Élévation pour que l'image soit au-dessus du carré *!*/
@@ -41,17 +40,39 @@
 }
 
 
-/*.logoquadripub {*/
-/*    display: flex;*/
-/*    margin: auto;*/
-/*    height: 100px;*/
-/*    width: 100px;*/
-/*    top: 25%; !* Ajustez la position verticale du logo *!*/
-/*    left: 25%; !* Ajustez la position horizontale du logo *!*/
-/*    transform: translate(-25%, -25%); !* Centre le logo *!*/
-/*    background-color: black;*/
+.logoquadripub {
+    display: flex;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    top: 25%; /* Ajustez la position verticale du logo */
+    left: 25%; /* Ajustez la position horizontale du logo */
+    transform: translate(-25%, -25%); /* Centre le logo */
+    text-align: center;
+}
+
+
+/*.comimg{*/
+/*    transform: translate(-90%, -5%); !* Ajuste le positionnement pour centrer l'image *!*/
+
+/*    z-index: 1; !* Élévation pour que l'image soit au-dessus du carré *!*/
+/*    width: 200px; !* Largeur d'image *!*/
+/*    height: 210px; !* Hauteur d'image *!*/
+
+/*    !*width: calc(80% + 25px); !* Ajuste la largeur pour inclure le dépassement *!*!*/
+/*    !*height: calc(60% + 80px); !* 60% ajuste la hauteur *!*!*/
 /*}*/
 
+
+.logocom{
+    display: flex;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    top: 25%; /* Ajustez la position verticale du logo */
+    left: 25%; /* Ajustez la position horizontale du logo */
+    transform: translate(-25%, -25%); /* Centre le logo */
+}
 
 /*.btn {*/
 
