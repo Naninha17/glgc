@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{# Définition du titre de la page #}
+{% block title %}Page introuvable : Erreur 404{% endblock %}
+
+{# Remplissage du body de la page #}
+{% block body %}
+
+    {# Grille Bootstrap #}
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 text-center">
+
+                <a href="/">
+                <img src="{{ asset('images/glgc.png') }}" alt="Logo GLGC groupe" class="img-fluid text-bg-dark my-5">
+                </a>
+
+                <p class="text-center text-uppercase text-bg-primary">Page introuvable</p>
+                <img src="{{ asset('images/404.jpg') }}" alt="Erreur 404, page introuvable" class="img-fluid my-3 w-50">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{# Définition du titre de la page #}
+{% block title %}Problème interne au serveur : Erreur 500{% endblock %}
+
+{# Remplissage du body de la page #}
+{% block body %}
+
+    {# Grille Bootstrap #}
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 text-center">
+
+                <a href="/">
+                    <img src="{{ asset('images/glgc.png') }}" alt="Logo GLGC groupe" class="img-fluid text-bg-dark my-5">
+                </a>
+
+                <h1 class="text-center my-5 text-bg-primary">Erreur {{ status_code }} - {{ status_text }}</h1>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
