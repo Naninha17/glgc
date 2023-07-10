@@ -1,16 +1,18 @@
-{% extends 'base.html.twig' %}
+{# Utilisation du squelette "base.html.twig" #}
+{% extends "base.html.twig" %}
 
-{% block title %}Log in!{% endblock %}
+{# Définition du titre de la page #}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-<form method="post">
+<form method="POST">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
 
