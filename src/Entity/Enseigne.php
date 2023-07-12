@@ -15,67 +15,58 @@ class Enseigne
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    private ?string $content = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $adress = null;
+    #[ORM\ManyToOne(inversedBy: 'enseignes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?user $user = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $contact = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): static
+    public function setTitle(string $title): static
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getContent(): ?string
     {
-        return $this->description;
+        return $this->content;
     }
 
-    public function setDescription(string $description): static
+    public function setContent(string $content): static
     {
-        $this->description = $description;
+        $this->content = $content;
 
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getUser(): ?user
     {
-        return $this->adress;
+        return $this->user;
     }
 
-    public function setAdress(string $adress): static
+    public function setUser(?user $user): static
     {
-        $this->adress = $adress;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getContact(): ?string
-    {
-        return $this->contact;
-    }
 
-    public function setContact(string $contact): static
-    {
-        $this->contact = $contact;
 
-        return $this;
-    }
+
 }

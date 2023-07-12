@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -26,6 +28,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Enseigne::class)]
+    private Collection $enseignes;
+
+    public function __construct()
+    {
+        $this->enseignes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,7 +70,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
+        // garantit que chaque utilisateur à au moins ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -95,5 +105,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Enseigne>
+     */
+    public function getEnseignes(): Collection
+    {
+        return $this->enseignes;
+    }
+
+    public function addEnseigne(Enseigne $enseigne): static
+    {
+        if (!$this->enseignes->contains($enseigne)) {
+            $this->enseignes->add($enseigne);
+            $enseigne->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnseigne(Enseigne $enseigne): static
+    {
+        if ($this->enseignes->removeElement($enseigne)) {
+            // set the owning side to null (unless already changed)
+            if ($enseigne->getUser() === $this) {
+                $enseigne->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

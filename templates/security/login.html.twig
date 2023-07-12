@@ -4,41 +4,67 @@
 {# Définition du titre de la page #}
 {% block title %}Connexion{% endblock %}
 
+{# Remplissage du body de la page #}
 {% block body %}
-<form method="POST">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+    <h1 class="text-center">Connexion</h1>
+
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+
+        <div class="w-full max-w-md">
+
+            <form action="{{ path('app_login') }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+                {% if error %}
+                    <div class="bg-red-500 text-white text-center py-2 px-4">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {# Class idem que celle de bootstrap avec alert alert-danger mais version Tailwind Css#}
+                {% endif %}
+
+                {# Champ email #}
+                {# L'utilité d'utilisé {{ last_username }} dans le champs Email est que Twig permet l'echappement HTML des variables, ce qui aide à prévenir des attaques par injection de code, autrement j'aurais utilisé 'htmlspecialchars'}} #}
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="inputEmail">
+                        E-mail
+                    </label>
+                    <input value="{{ last_username }}" type="text" name="email" id="inputEmail" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Adresse e-mail" required autofocus>
+                </div>
+
+                {# Champ mot de passe #}
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="inputPassword">
+                        Mot de passe
+                    </label>
+                    <input type="password" name="password" id="inputPassword" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="**********" required>
+                    <p class="text-red-500 text-xs italic">Veuillez saisir un mot de passe.</p>
+                </div>
+
+                {# Champ invisible token anti attaque CSRF #}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                {# Bouton de validation #}
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full md:w-auto" value="Connexion">
+                        Connexion
+                    </button>
+{#                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">#}
+{#                        Mot de passe oublié ?#}
+{#                    </a>#}
+                </div>
+
+            </form>
+
+            <p class="text-center text-gray-500 text-xs">
+                &copy; 2023 GLGC. Tous droits réservés.
+            </p>
+
         </div>
-    {% endif %}
+    </div>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+{#    {% if app.user %}#}
+{#        <div class="mb-3">#}
+{#            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>#}
+{#        </div>#}
+{#    {% endif %}#}
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}

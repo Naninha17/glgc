@@ -17,13 +17,13 @@ class DashboardController extends AbstractDashboardController
 //    ){
 //    }
 
-    #[IsGranted('ROLE_ADMIN')]
         #[Route('/admin', name: 'admin')]
+        #[IsGranted('ROLE_ADMIN')]
     public function index(): Response
     {
         return parent::index();
 
-//         return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
+         return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
 
     }
 
