@@ -1,0 +1,44 @@
+{# Utilisation du squelette "second.html.twig" pour le back-office #}
+{% extends 'second.html.twig' %}
+
+{# Définition du titre de la page #}
+{% block title %}Administration des mentions légales{% endblock %}
+
+{# Remplissage du body de la page #}
+{% block body %}
+
+    <div class="bg-gray-100">
+        <div class="text-center">
+            <a href="{{ path('main_home') }}">Administration</a>
+            <div class="flex items-center justify-between">
+                <a href="/logout"
+                   class="text-red-500 hover:text-red-700 font-bold py-2 px-4 focus:outline-none focus:shadow-outline">
+                    Déconnexion
+                </a>
+                <div class="container mx-auto">
+                    {# Lien pour retourner à la liste des enseignes #}
+                    <div class="text-center my-3">
+                        <a href="{{ path('enseigne_list') }}" class="text-blue-500 hover:text-blue-600 underline">Retour à la liste des enseignes</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container mx-auto mt-5">
+            {# Titre h1 de la page #}
+            <h1 class="text-center my-5">Administration des mentions légales</h1>
+            {# Affichage du formulaire #}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center">
+                <div class="col-span-1 md:col-span-2 mx-auto"> {# w-full max-w-lg mx-auto #}
+
+                    {# Affichage du formulaire de création d'article #}
+                    {{ form(new_legal_notice_form) }}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,3 +1,4 @@
+{# Utilisation du squelette "base.html.twig" pour le front-office #}
 {% extends 'base.html.twig' %}
 
 {# Définition du titre de la page #}
@@ -10,16 +11,26 @@
     <div class="relative aspect-[3/1]">
         <img src="{{ asset('images/Com&Cie_HD-55.jpg') }}" class="h-full w-full object-contain object-right" alt="">
 
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-200/70 to-blue-700/70 w-3/4">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-200/70 to-blue-700/70 w-3/4 sm:w-full">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-200/70 to-blue-700/70 w-3/4 sm:w-full">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-100/70 to-blue-700/70 w-3/4 sm:w-full">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-200/70 to-blue-700/70 w-3/4 sm:w-full">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-200/70 to-blue-700/70 w-3/4 sm:w-full">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
+
         <div class="absolute inset-0 flex flex-col justify-center items-center">
-            <img class="my-auto" src="{{ asset('images/glgc.png') }}" alt="Logo GLGC">
+            <img class="my-auto" src="{{ asset('images/Group-glgc.svg') }}" alt="Logo GLGC">
 
             <div class="space-y-4 pb-4">
                 <p class="text-center uppercase">Groupe de communication</p>
 
-                <a class="flex justify-center items-center h-8 w-8 mx-auto border border-black rounded-full animate-bounce" href="#bazinga" onclick="scrollToSection()">
+                <a class="flex justify-center items-center h-8 w-8 mx-auto border border-black rounded-full animate-bounce" href="#bazinga">
                     <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
@@ -41,17 +52,20 @@
     <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">
         <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">
             <div class="relative aspect-square h-full w-full object-cover bg-gray-400">
-                <img src="{{ asset('images/Com&Cie_HD-7.jpg') }}" alt="">
+                <img class="h-full w-full object-cover" src="{{ asset('images/Com&Cie_HD-7.jpg') }}" alt="">
+                <div class="absolute inset-0 flex justify-center">
+                    <div class="w-full max-w-[70%] bg-gradient-to-r from-yellow-500/70 to-yellow-500/70"></div>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <img src="{{ asset('images/Groupcomcie.png') }}" alt="Logo" class="w-1/3">
+                </div>
             </div>
-{#            <div class="absolute inset-0 flex justify-center">#}
-{#                <div class="w-full max-w-[60%] bg-gradient-to-r from-yellow-500/70 to-yellow-500/70"></div>#}
-{#            </div>#}
 
             <div class="space-y-6">
 
                 <div data-aos="fade-up"
                     data-aos-anchorplacement="bottom-bottom">
-                <h2 class="text-2xl uppercase">Stratégie et Digital</h2>
+                <h2 class="text-2xl uppercase">Stratégie et Digital</h2> <br>
                 <p class="text-gray-500">Spécialiste de la communication web, impression, signalétique,<br> réseaux sociaux, agencement...</p>
                 </div>
 
@@ -61,22 +75,31 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                             <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
                         </svg>
-
                     </a>
+
                 </p>
             </div>
         </div>
+
+        <section> {# ouverture de la section img/decorationgroup.png #}
+
     </section>
 
+        <img src="{{ asset('images/decorationgroup.png') }}" alt="">
+    </section> {# fermeture de la section img/decorationgroup.png #}
+    
     {# Img/Text Quadripub #}
     <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">
         <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">
             <div class="relative aspect-square h-full w-full object-cover bg-gray-400">
-                <img src="{{ asset('images/quadripub1.png') }}" alt="">
+                <img class="h-full w-full object-cover" src="{{ asset('images/quadripub1.png') }}" alt="">
+                <div class="absolute inset-0 flex justify-center">
+                    <div class="w-full max-w-[70%] bg-gradient-to-r from-red-500/70 to-red-500/70"></div>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <img src="{{ asset('images/quadripub.png') }}" alt="Logo" class="w-1/3">
+                </div>
             </div>
-{#            <div class="absolute inset-0 flex justify-center">#}
-{#                <div class="w-full max-w-[60%] bg-gradient-to-r from-yellow-500/70 to-yellow-500/70"></div>#}
-{#            </div>#}
 
             <div class="space-y-6">
                 <h2 class="text-2xl uppercase">Signalétique et Impression</h2>
@@ -94,6 +117,7 @@
         </div>
     </section>
 
+          {# Système de galerie d'image #}
     <section class="flex justify-center items-center">
         <div class="flex space-x-4 my-3">
 
@@ -116,94 +140,71 @@
         </div>
     </section>
 
+    {# Section Bannière Téméraires #}
+    <section>
+        <div class="relative aspect-[3/1]">
+            <img src="{{ asset('images/temerairesjpg.jpg') }}" alt="" class="w-full h-full object-cover">
+
+            <div class="absolute inset-0 flex items-center justify-center">
+                <img src="{{ asset('images/temeraires.png') }}" alt="Logo" class="w-1/3">
+            </div>
+            <p class="text-center">
+                <a class="inline-flex gap-1 items-center" href="#">
+                    Vêtements Bourguignons
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </p>
+
+        </div>
+    </section>
+
+    {# Img/Text Space&Cie #}
+    <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">
+        <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">
+            <div class="relative aspect-square h-full w-full object-cover bg-gray-400">
+                <img class="h-full w-full object-cover" src="{{ asset('images/Com&Cie_HD-78.jpeg') }}" alt="">
+                <div class="absolute inset-0 flex justify-center">
+                    <div class="w-full max-w-[70%] bg-gradient-to-r from-green-600/70 to-green-600/70"></div>{# rgba r105 v158 B120 70% opacité héxa 699E78 pour la couleur vert de space & cie #}
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <img src="{{ asset('images/space.png') }}" alt="Logo" class="w-1/3">
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-2xl uppercase">Agencement et décoration</h2>
+                <p class="text-gray-500">Réinventez votre espace de vie <br> pour un intérieur unique qui vous ressemble</p>
+                <p>
+                    <a class="inline-flex gap-1 items-center" href="#">
+                        Agencement et déco
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                        </svg>
+
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <section> {# ouverture de la section img/decoration2group.png #}
+
+    </section>
 
 
+        <img src="{{ asset('images/decoration2group.png') }}" alt="">
+    </section> {# fermeture de la section img/decorationgroup.png #}
 
+    {# Footer #}
+    <footer class="bg-blue-200 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="https://fr.linkedin.com/company/cometcie" class="text-blue-700 font-bold">LinkedIn</a>
 
+            <div class="text-gray-700 text-sm">
+                <a href="{{ path('legal_notice') }}">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
 
-
-
-
-
-    {#    #}{# Grille Bootstrap #}
-{#    <div class="container">#}
-{#    #}
-{#        <div class=" row main-banner">#}
-
-{#        </div>#}
-{#    #}
-{#        <div class="row">#}
-{#            <div class="col-12">#}
-
-{#                <h2 class="text-center">Enseigne et signalétique</h2>#}
-{#                    <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">#}
-{#                        <div class="col-12 col-lg-6 col-xl-3  d-flex justify-content-center align-items-center">#}
-
-{#                        <img class="quadripubimg" src="{{ asset('images/quadripub1.png') }}" style="width: 400px; height: 350px" alt="Enseigne Quadripub">#}
-
-{#                        <img class="logoquadripub" src="{{ asset('images/quadripub.png') }}" alt="Logo Quadripub">#}
-{#                        </div>#}
-{#                        <div class="text">#}
-{#                            <div class="text col-12 col-lg-8 p-5">#}
-{#                                <p class="text">QuadriPub, combine créativité et savoir-faire.<br> Graphistes, enseignistes, webdesigners et poseurs relèvent quotidiennement vos challenges.#}
-{#                                </p>#}
-{#                                <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>#}
-{#                                </button>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-
-{#                <h2 class="text-center">Stratégie et digitale</h2>#}
-{#                <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">#}
-{#                    <div class="text col-12 col-lg-8 p-5 text-center">#}
-{#                        <p class="text">Spécialiste de la communication web, impression, signalétique,<br> réseaux sociaux, agencement...#}
-{#                        </p>#}
-{#                        <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>#}
-{#                        </button>#}
-{#                    </div>#}
-{#                    <div class="col-12 col-lg-6 col-xl-3 d-flex justify-content-center align-items-center">#}
-{#                        <div class="carre">#}
-{#                            <img class="comimg" src="{{ asset('images/Com&Cie.jpg') }}" style="width: 400px; height: 350px" alt="Enseigne Com&Cie">#}
-{#                            <img class="logocom" src="{{ asset('images/Group.png') }}" alt="Logo Com&Cie">#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-
-{#                <h2 class="text-center">Vêtements Bourguignons</h2>#}
-{#                <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">#}
-{#                    <div class="col-12 col-lg-6 col-xl-3  d-flex justify-content-center align-items-center">#}
-
-{#                        <img class="temeraireimg" src="{{ asset('images/temeraires.jpg') }}" style="width: 400px; height: 350px" alt="Enseigne Téméraires">#}
-
-{#                        <img class="logotemeraire" src="{{ asset('images/temeraires.png') }}" alt="Logo Les Téméraires">#}
-{#                    </div>#}
-{#                    <div class="text">#}
-{#                        <div class="text col-12 col-lg-8 p-5">#}
-{#                            <p class="text">Marque Bourguignonne sans prétention !#}
-{#                                Parce que nous en avions envie, découvrez nos t-shirts.#}
-{#                            </p>#}
-{#                            <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-
-{#                <h2 class="text-center">Design d'espece</h2>#}
-{#                <div class="col-12 p-5 d-flex flex-wrap flex-lg-nowrap">#}
-{#                    <div class="text col-12 col-lg-8 p-5 text-center">#}
-{#                        <p class="text-center">Qui eius voluptatem a esse nostrum sed <br> eius non saepe veritatis sit earum dolorum.#}
-{#                        </p>#}
-{#                        <button type="button" class="btn btn-outline-secondary btn-sm text-center">Voir plus <i class="fa-solid fa-arrow-right"></i>#}
-{#                        </button>#}
-{#                    </div>#}
-{#                    <div class="col-12 col-lg-6 col-xl-3 d-flex justify-content-center align-items-center">#}
-{#                        <img class="spaceimg" src="{{ asset('images/IMG_6392.png') }}" style="width: 400px; height: 350px" alt="Enseigne Space&Cie">#}
-
-{#                        <img class="logospace" src="{{ asset('images/space.png') }}" alt="Logo Space&Cie">#}
-{#                    </div>#}
-{#                </div>#}
-
-
-{#            </div>#}
-{#        </div>#}
 {% endblock %}

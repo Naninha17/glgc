@@ -3,99 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-/*.navbar-brand{*/
-/*     display: flex; !* Logo flexible *!*/
-/*     justify-content: center; !* centre *!*/
-/*     align-items: center; !* centre *!*/
-/*     width: 100%; !* bloc prend 100% de sa largeur *!*/
-/*     background-color: black;*/
-/* }*/
-
-.main-banner{
-    background: url("../images/Com&Cie_HD-55.jpg") center center;
-    background-size: cover;
-    height: 400px;
-}
-
-.container-fluid .row{
-    display: flex; /* Rend les éléments de la div flexible */
-    justify-content: space-evenly; /* Permet d'avoir un bon espace réparti */
-    height: 200px;
-    margin-top: 100px; /* Permet de ne pas avoir l'image collé au logo */
-}
-
-/*.carre{*/
-/*    display: flex;*/
-/*    width: 500px; !* Largeur *!*/
-/*    height: 450px; !* Hauteur *!*/
-/*    !*top: 50%; !* Position verticale à 50% du carré *!*!*/
-/*    !*left: 70%; !* Position horizontale à 50% du carré *!*!*/
-/*    !*top: 20px;*!*/
-/*    !*left: 30px;*!*/
-/*    background-color: #423C3C ; !* Couleur du carré *!*/
-
-/*}*/
-
-.quadripubimg{
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*transform: translate(-90%, -5%); !* Ajuste le positionnement pour centrer l'image *!*/
-
-    /*z-index: 1; !* Élévation pour que l'image soit au-dessus du carré *!*/
-    /*width: 200px; !* Largeur d'image *!*/
-    /*height: 210px; !* Hauteur d'image *!*/
-
-    /*width: calc(80% + 25px); !* Ajuste la largeur pour inclure le dépassement *!*/
-    /*height: calc(60% + 80px); !* 60% ajuste la hauteur *!*/
-}
-
-
-.logoquadripub {
-    display: flex;
-    margin: auto;
-    height: 100px;
-    width: 100px;
-    top: 25%; /* Ajustez la position verticale du logo */
-    left: 25%; /* Ajustez la position horizontale du logo */
-    transform: translate(-25%, -25%); /* Centre le logo */
-    text-align: center;
-}
-
-
-/*.comimg{*/
-/*    transform: translate(-90%, -5%); !* Ajuste le positionnement pour centrer l'image *!*/
-
-/*    z-index: 1; !* Élévation pour que l'image soit au-dessus du carré *!*/
-/*    width: 200px; !* Largeur d'image *!*/
-/*    height: 210px; !* Hauteur d'image *!*/
-
-/*    !*width: calc(80% + 25px); !* Ajuste la largeur pour inclure le dépassement *!*!*/
-/*    !*height: calc(60% + 80px); !* 60% ajuste la hauteur *!*!*/
-/*}*/
-
-
-.logocom{
-    display: flex;
-    margin: auto;
-    height: 100px;
-    width: 100px;
-    top: 25%; /* Ajustez la position verticale du logo */
-    left: 25%; /* Ajustez la position horizontale du logo */
-    transform: translate(-25%, -25%); /* Centre le logo */
-}
-
-/*.btn {*/
-
-
-
-/*}*/
-
-
 /* CLASSES JS */
-
 .overlay{
     position: fixed;
     top: 0;
@@ -114,4 +22,11 @@
     max-height: 90%;
 }
 
+
+/* Police d'écriture */
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@300&display=swap');
+
+body{
+    font-family: 'Ysabeau Infant', sans-serif;
+}
 

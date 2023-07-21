@@ -32,9 +32,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Enseigne::class)]
     private Collection $enseignes;
 
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: LegalNotice::class)]
+    private Collection $legalNotices;
+
     public function __construct()
     {
         $this->enseignes = new ArrayCollection();
+        $this->legalNotices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -131,6 +135,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($enseigne->getUser() === $this) {
                 $enseigne->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LegalNotice>
+     */
+    public function getLegalNotices(): Collection
+    {
+        return $this->legalNotices;
+    }
+
+    public function addLegalNotice(LegalNotice $legalNotice): static
+    {
+        if (!$this->legalNotices->contains($legalNotice)) {
+            $this->legalNotices->add($legalNotice);
+            $legalNotice->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLegalNotice(LegalNotice $legalNotice): static
+    {
+        if ($this->legalNotices->removeElement($legalNotice)) {
+            // set the owning side to null (unless already changed)
+            if ($legalNotice->getAuthor() === $this) {
+                $legalNotice->setAuthor(null);
             }
         }
 

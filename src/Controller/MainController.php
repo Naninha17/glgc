@@ -23,4 +23,17 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * Contrôleur de la page des mentions légales
+     */
+
+    #[Route('/mentions-legales/', name: 'legal_notice')]
+    public function legalNotice(): Response
+    {
+
+        return $this->render('legal_notice.html.twig');
+    }
+
+
+
 }

@@ -1,6 +1,3 @@
-{# On crée un variable Twig "route" qui contiendra le nom de la route actuellement chargée #}
-{#{% set route = app.request.attributes.get('_route') %}#}
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,19 +19,18 @@
 </head>
 <body>
 
-    {# Inclusion de l'affichage des messages flashes de type "success" et "error" #}
+{# Inclusion de l'affichage des messages flashes de type "success" et "error" #}
 {#    {% include 'partials/_flashes.html.twig' %}#}
 
-    {# Inclusion du contenu des pages (via le block "body" ) #}
-    {% block body %}{% endblock %}
+{# Inclusion du contenu des pages (via le block "body" ) #}
+{% block body %}{% endblock %}
 
-    {# Inclusion du fichier JS Bootstrap #}
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+{# Inclusion du fichier JS Bootstrap #}
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 
-    {# Block pour permettre aux pages de rajouter individuellement des fichiers JS additionnels #}
-    {% block js %}{% endblock %}
+{# Block pour permettre aux pages de rajouter individuellement des fichiers JS additionnels #}
+{% block js %}{% endblock %}
 </body>
 </html>
-
