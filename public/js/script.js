@@ -1,10 +1,3 @@
-// Fonction pour une animation scroll depuis le bouton de la bannière principale
-function scrollToSection() {
-    const section = document.getElementById('bazinga');
-    section.scrollIntoView({
-        behavior: 'smooth'
-    });
-}
 
 // Classe pour créer le système de galerie
 class Gallery{

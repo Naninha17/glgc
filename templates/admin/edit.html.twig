@@ -2,7 +2,7 @@
 {% extends 'second.html.twig' %}
 
 {# Définition du titre de la page #}
-{% block title %}Administration des mentions légales{% endblock %}
+{% block title %}Administration{% endblock %}
 
 {# Remplissage du body de la page #}
 {% block body %}
@@ -21,14 +21,13 @@
 
     </div>
 
-        <div class="container mx-auto mt-5 flex-grow">
-            <h1 class="text-center my-5 text-3xl font-semibold text-gray-800">Administration des mentions légales</h1>
+    {# Affichage du formulaire #}
+    <div class="overflow-x-auto">
+        <h1 class="text-2xl lg:text-4xl text-center font-bold my-4">Modification des enseignes</h1>
+        <div class="table-auto w-full border-collapse">
+            {# Affichage du formulaire de modification d'enseignes #}
+            {{ form( enseigneEdit_form ) }}
         </div>
-
-            {# Affichage du formulaire #}
-            <div class=" w-full border-collapse">
-                {# Affichage du formulaire de modification des mentions légales #}
-                {{ form(new_legal_notice_form) }}
-            </div>
+    </div>
 
 {% endblock %}

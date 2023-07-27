@@ -24,11 +24,20 @@ class Enseigne
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageUrl = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageLogo = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $subtitle = null;
+
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $color = null;
 
 
     public function getId(): ?int
@@ -77,7 +86,7 @@ class Enseigne
         return $this->image;
     }
 
-    public function setImage(string $image): static
+    public function setImage(?string $image): static
     {
         $this->image = $image;
 
@@ -92,6 +101,42 @@ class Enseigne
     public function setImageUrl(?string $imageUrl): static
     {
         $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    public function getImageLogo(): ?string
+    {
+        return $this->imageLogo;
+    }
+
+    public function setImageLogo(?string $imageLogo): static
+    {
+        $this->imageLogo = $imageLogo;
+
+        return $this;
+    }
+
+    public function getSubtitle(): ?string
+    {
+        return $this->subtitle;
+    }
+
+    public function setSubtitle(string $subtitle): static
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): static
+    {
+        $this->color = $color;
 
         return $this;
     }

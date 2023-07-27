@@ -41,10 +41,13 @@ class AppFixtures extends Fixture
 
         // Hydratation des enseignes
         $cometcie
-            ->setTitle('Stratégie et digital')
-            ->setContent('Spécialiste de la communication web, impression, signalétique, réseaux sociaux, agencement...')
-            ->setImage('Com&Cie_HD-7.jpg')
-            ->setImageUrl('https://www.cometcie.fr/')
+            ->setTitle('')
+            ->setContent('')
+            ->setImage('')
+            ->setImageUrl('')
+            ->setImageLogo('')
+            ->setSubtitle('')
+            ->setColor('')
             ->setUser( $admin )
             ;
 
@@ -52,10 +55,13 @@ class AppFixtures extends Fixture
         $quadripub = new Enseigne();
 
         $quadripub
-            ->setTitle('Signalétique et Impression')
-            ->setContent('Combine créativité et savoir-faire. Graphistes, enseignistes, webdesigners et poseurs relèvent quotidiennement vos challenges.')
-            ->setImage('quadripub1.png')
-            ->setImageUrl('https://www.quadripub.com/')
+            ->setTitle('')
+            ->setContent('')
+            ->setImage('')
+            ->setImageUrl('')
+            ->setImageLogo('')
+            ->setSubtitle('')
+            ->setColor('')
             ->setUser( $admin )
 
         ;
@@ -64,18 +70,32 @@ class AppFixtures extends Fixture
         $spaceetcie = new Enseigne();
 
         $spaceetcie
-            ->setTitle('Agencement et décoration')
-            ->setContent('Réinventez votre espace de vie pour un intérieur unique qui vous ressemble')
-            ->setImage('Com&Cie_HD-78.jpeg')
+            ->setTitle('')
+            ->setContent('')
+            ->setImage('')
             ->setImageUrl('')
+            ->setImageLogo('')
+            ->setSubtitle('')
+            ->setColor('')
             ->setUser( $admin )
 
         ;
+
+//        $temeraires = new Enseigne();
+//
+//        $temeraires
+//            ->setImage('')
+//            ->setImageUrl('')
+//        ->setImageLogo('')
+//        ->setSubtitle('')
+//            ->setUser( $admin )
+//            ;
 
         // Enregistrement des enseignes auprès de Doctrine
         $manager->persist($cometcie);
         $manager->persist($quadripub);
         $manager->persist($spaceetcie);
+//        $manager->persist($temeraires);
 
 
         $manager->flush();

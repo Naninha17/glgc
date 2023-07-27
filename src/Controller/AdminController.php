@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Enseigne;
 use App\Entity\LegalNotice;
-use App\Entity\User;
 use App\Form\EnseigneFormType;
 use App\Form\LegalNoticeFormType;
 use App\Repository\EnseigneRepository;
@@ -43,8 +42,6 @@ class AdminController extends AbstractController
         // $enseigne contient toutes les enseignes dans la base de données
         $enseigne = $enseigneRepository->findAll();
 
-        dump($enseigne);
-
         return $this->render('admin/liste.html.twig',[
             'enseigne' => $enseigne,
         ]);
@@ -54,39 +51,85 @@ class AdminController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function enseigneEdit(int $id, Request $request, ManagerRegistry $doctrine): Response
     {
-        dump($id);
-
         // Récupération de l'enseigne à partir de l'ID
         $entityManager = $doctrine->getManager();
         $enseigne = $entityManager->getRepository(Enseigne::class)->find($id);
 
-        // Vérification que l'enseigne existe
-        if (!$enseigne) {
-            throw $this->createNotFoundException('L\'enseigne n\'existe pas.');
-        }
 
-        // Création du formulaire de modification d'enseigne
-        $form = $this->createForm(EnseigneFormType::class, $enseigne);
+            // Création du formulaire de modification d'enseigne
+        $enseigneEdit_form = $this->createForm(EnseigneFormType::class, $enseigne);
 
-        // Traitement du formulaire lorsqu'il est soumis
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Enregistrement des modifications en base de données
-            $entityManager->flush();
+            // Traitement du formulaire lorsqu'il est soumis
+            $enseigneEdit_form->handleRequest($request);
+            if ($enseigneEdit_form->isSubmitted() && $enseigneEdit_form->isValid()) {
 
-            // Ajout d'un message flash pour indiquer que l'enseigne a été modifiée avec succès
-            $this->addFlash('success', 'L\'enseigne a été modifiée avec succès.');
+                // Récupération du champ image du formulaire
+//                $imageFile = $enseigneEdit_form->get('image')->getData();
 
-            return $this->redirectToRoute('enseigne_list');
-        }
+                // Récupération de l'emplacement ou on sauvegarde toutes les photos de profil
+//                $imageLocation = $this->getParameter('app.image.directory');
 
-        // Redirection vers la liste des enseignes
-        return $this->render('enseigne/edit.html.twig', [
-            'enseigneEdit_form' => $form->createView(),
-        ]);
+//                $imageFile->guessExtension();
+
+                // Sauvegarde de la photo avec son nouvel emplacement
+//                $imageFile->move(
+//                    $imageLocation,
+//                );
+
+//             // Vérifier si une nouvelle image a été téléchargée
+                $imageFile = $enseigneEdit_form->get('image')->getData();
+                if ($imageFile != null) {
+                    // Enregistrement de l'image dans le champ 'image'
+                    $enseigne->setImage($imageFile->getClientOriginalName());
+                }
+
+//                 Vérifier si une nouvelle image a été téléchargée
+                $imageLogo = $enseigneEdit_form->get('imageLogo')->getData();
+                if ($imageLogo !== null) {
+                    // Enregistrement de l'image dans le champ 'imageLogo'
+                    $enseigne->setImageLogo($imageLogo->getClientOriginalName());
+                }
+
+
+
+                // Enregistrement des modifications en base de données
+                $entityManager->flush();
+
+//                // Ajout d'un message flash pour indiquer que l'enseigne a été modifiée avec succès
+//                $this->addFlash('success', 'L\'enseigne a été modifiée avec succès.');
+
+                // Redirection vers la liste des enseignes
+                return $this->redirectToRoute('enseigne_list');
+            }
+
+            return $this->render('admin/edit.html.twig', [
+                'enseigneEdit_form' => $enseigneEdit_form->createView(),
+            ]);
     }
 
+    /*
+     *  Contrôleur servant à supprimer une enseigne via son Id passé dans l'url
+     */
+    #[Route('/enseigne/supprimer/{id}', name: 'enseigne_delete')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function enseigneDelete(Enseigne $enseigne, ManagerRegistry $doctrine, Request $request): Response
+    {
 
+        // Vérif si le token csrf est valide
+        if (!$this->isCsrfTokenValid('admin_enseigne_delete' . $enseigne->getId(), $request->query->get('csrf_token') )){
+            $this->addFlash('error', 'Token sécurité invalide, veuillez ré-essayer.');
+
+        }else{
+
+            $em = $doctrine->getManager();
+            $em->remove($enseigne);
+            $em->flush();
+
+            $this->addFlash('success', 'L\'enseigne a été supprimée avec succès !');
+        }
+
+            return $this->redirectToRoute('enseigne_list');
+    }
 
 
     #[Route('/admin-mentions-legales/', name: 'admin_legal')]
@@ -94,7 +137,7 @@ class AdminController extends AbstractController
     public function legalNotice(Request $request, ManagerRegistry $doctrine): Response
     {
 
-        // Création d'une nouvelle mention légale vide
+        // Création
         $newNotice = new LegalNotice();
 
         // Création d'un formulaire pour intéragir avec la page des mentions légales
@@ -104,7 +147,7 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()){
 
-            // On termine d'hydrater l'article
+            // On termine d'hydrater
             $newNotice
                 ->setAuthor($this->getUser());
 

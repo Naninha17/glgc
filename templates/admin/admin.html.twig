@@ -8,36 +8,43 @@
 {% block body %}
 
     <div class="bg-gray-100">
+
         <div class="text-center">
-            <a href="{{ path('main_home') }}">Administration</a>
-            <div class="flex items-center justify-between">
-                <a href="/logout"
-                   class="text-red-500 hover:text-red-700 font-bold py-2 px-4 focus:outline-none focus:shadow-outline">
-                    Déconnexion
-                </a>
-            </div>
-        </div>
-
-
-        <div class="mt-5 flex justify-center space-x-4">
-            <a href="{{ path('admin_legal') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Mentions Légales
+            <a href="{{ path('main_home') }}" class="text-blue-500 hover:text-blue-700 font-bold">
+                Page GLGC
             </a>
 
-            <div class="mt-5 flex justify-center space-x-4">
-                <a href="{{ path('enseigne_list') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                   Liste des enseignes
-                </a>
-
-            {# Récupérer l'id de l'enseigne ici (remplacez "1" par l'id réel) #}
-            {% set enseigneId = 1 %}
-            <a href="{{ path('enseigne_edit', {'id': enseigneId}) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                Modifier l'Enseigne
+        <div class="items-center justify-end">
+            <a href="/logout" class="text-red-500 hover:text-red-700 font-bold">
+                Déconnexion
             </a>
         </div>
+    </div>
+
+    <div class="my-5 flex flex-col items-center md:flex-row md:justify-center md:space-x-4">
+        <a href="{{ path('enseigne_list') }}"
+           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">
+            Liste des enseignes
+        </a>
+
+        {% set enseigneId = 1 %}
+        <a href="{{ path('enseigne_edit', {'id': enseigneId}) }}"
+           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">
+            Modifier l'Enseigne
+        </a>
+
+        <a href="{{ path('admin_legal') }}"
+           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">
+            Mentions Légales
+        </a>
 
 
-            {#personnalisation de l'interface#}
+            {# BOUTON SUPPRIMER INUTILE #}
+{#        {% set enseigneIdToDelete = 1 %}#}
+{#        <a href="{{ path('enseigne_delete', {'id': enseigneIdToDelete}) }}"#}
+{#           class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">#}
+{#            Supprimer l'Enseigne#}
+{#        </a>#}
 
     </div>
 

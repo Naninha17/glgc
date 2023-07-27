@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\EnseigneRepository;
+use App\Repository\LegalNoticeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,12 +16,13 @@ class MainController extends AbstractController
      */
 
     #[Route('/', name: 'main_home')]
-    public function home(): Response
+    public function home(EnseigneRepository $enseigneRepository, ): Response
     {
 
 
-        return $this->render('main/home.html.twig', [
-            'controller_name' => 'MainController',
+        return $this->render('home.html.twig', [
+//            'form' => $enseigneRepository->findAll()
+             'enseigneEdit_form' => $enseigneRepository->findAll(),
         ]);
     }
 
@@ -28,10 +31,12 @@ class MainController extends AbstractController
      */
 
     #[Route('/mentions-legales/', name: 'legal_notice')]
-    public function legalNotice(): Response
+    public function legalNotice(LegalNoticeRepository $legalNoticeRepository): Response
     {
 
-        return $this->render('legal_notice.html.twig');
+        return $this->render('legal_notice.html.twig', [
+            'new_legal_notice_form' => $legalNoticeRepository->findAll()
+        ]);
     }
 
 
