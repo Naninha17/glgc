@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EnseigneRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: EnseigneRepository::class)]
 class Enseigne
@@ -24,7 +25,7 @@ class Enseigne
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -36,7 +37,7 @@ class Enseigne
     #[ORM\Column(length: 50)]
     private ?string $subtitle = null;
 
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 30, nullable: true)]
     private ?string $color = null;
 
 

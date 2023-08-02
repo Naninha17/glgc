@@ -4,7 +4,17 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    app.image.directory: '%kernel.project_dir%/public/images/'
+    # Dossier où sont stockées les images uploader
+    app.admin.image.directory: '%kernel.project_dir%/public/images/profils/'
+    app.admin.image.logo_directory: '%kernel.project_dir%/public/images/logo/'
+
+    # Tableau des types mimes autorisé
+    app.pictures.allowed_mime_types:
+        - 'image/jpeg'
+        - 'image/jpg'
+        - 'image/png'
+        - 'image/webp'
+        - 'image/svg+xml'
 
 services:
     # default configuration for services in *this* file

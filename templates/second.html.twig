@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     {#  Affichage du titre de la page venant de la vue via le block "title", suivi du nom du site collé à coté  #}
-    <title>{% block title %}Welcome!{% endblock %}</title>
-
+    <title>{% block title %}Administration{% endblock %}</title>
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
@@ -16,21 +14,19 @@
     {# Block pour permettre aux pages de rajouter individuellement des fichiers CSS additionnels #}
     {% block css %}{% endblock %}
     {% block stylesheets %}{% endblock %}
+
+    <script src="{{ asset('js/script.js') }}"></script>
+    {# Block pour permettre aux pages de rajouter individuellement des fichiers JS additionnels #}
+    {% block js %}{% endblock %}
+
 </head>
 <body>
 
 {# Inclusion de l'affichage des messages flashes de type "success" et "error" #}
-{#    {% include 'partials/_flashes.html.twig' %}#}
+    {% include 'partials/_flashes.html.twig' %}
 
 {# Inclusion du contenu des pages (via le block "body" ) #}
 {% block body %}{% endblock %}
 
-{# Inclusion du fichier JS Bootstrap #}
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-
-<script src="{{ asset('js/script.js') }}"></script>
-
-{# Block pour permettre aux pages de rajouter individuellement des fichiers JS additionnels #}
-{% block js %}{% endblock %}
 </body>
 </html>

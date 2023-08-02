@@ -76,7 +76,7 @@ class EnseigneFormType extends AbstractType
                 'label' => 'Image ',
                 'required' => false, // Permet que le champ Image ne soit pas obligatoire à remplir
                 'attr' => [
-                    'accept' => 'image/jpeg, image/png',
+                    'accept' => 'image/jpeg, image/jpg, image/png'
                 ],
                 'constraints' => [
 
@@ -85,9 +85,10 @@ class EnseigneFormType extends AbstractType
                         'maxSizeMessage' => 'Fichier trop volumineux. La taille maximum autorisée est de {{ limit }} {{ suffix }}',
                         'mimeTypes' => [
                             'image/jpeg',
+                            'image/jpg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'L\'image doit être de type jpeg ou png',
+                        'mimeTypesMessage' => 'L\'image n\'est pas au bon format',
                     ]),
                 ],
                 'data_class' => null, // Ajout de cette ligne pour autoriser une chaîne de caractères plutôt qu'une entité File autrement erreur symfony

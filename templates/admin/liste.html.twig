@@ -34,20 +34,27 @@
             </tr>
             </thead>
             <tbody>
-            {% for enseigne in enseigne %}
+
+{#            {{ dump(enseignes) }}#}
+
+            {% for enseigne in enseignes %}
+
+
                 <tr class="bg-gray-100">
                     <td class="border px-4 py-2">{{ enseigne.title }}</td>
                     <td class="border px-4 py-2">{{ enseigne.content }}</td>
                     <td class="border px-4 py-2">
-                        {% if enseigne.image %}
-                            <img class="w-32 h-50" src="{{ asset('images/' ~ enseigne.image) }}" alt="Image">
+                        {% if enseigne.image is not null %}
+
+                            <img class="w-32 h-50" src="{{ asset('/images/profils/' ~ enseigne.image) }}" alt="Image">
+
                         {% else %}
                             Aucune image
                         {% endif %}
                     </td>
                     <td class="border px-4 py-2">
                         {% if enseigne.imageLogo %}
-                            <img class="w-20 h-20" src="{{ asset('images/' ~ enseigne.imageLogo) }}" alt="Logo Image">
+                            <img class="w-20 h-20" src="{{ asset('/images/logo/' ~ enseigne.imageLogo) }}" alt="Logo Image">
                         {% else %}
                             Pas de logo
                         {% endif %}
@@ -60,9 +67,18 @@
                         {% endif %}
                     </td>
                     <td class="border px-4 py-2">
-                        <a class="text-yellow-700 mr-2" href="{{ path('enseigne_edit', {'id': enseigne.id}) }}">Modifier</a>
-                        <a class="text-red-500" href="{{ path('enseigne_delete', {'id': enseigne.id}) }}">Supprimer</a>
+                        <a class="text-yellow-500" href="{{ path('enseigne_edit', {'id': enseigne.id}) }}">
+                           Modifier
+                        </a>
+
+                        <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette enseigne ?')" href="{{ path('enseigne_delete', {id: enseigne.id, csrf_token: csrf_token('enseigne_delete' ~ enseigne.id)}) }}" class="text-red-500 text-decoration-none flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            Supprimer
+                        </a>
                     </td>
+
                 </tr>
             {% endfor %}
             </tbody>

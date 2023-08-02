@@ -11,6 +11,8 @@
 
         <div class="w-full max-w-md">
 
+            <h1 class="text-center">Connectez-vous</h1>
+
             <form action="{{ path('app_login') }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
                 {% if error %}
@@ -18,7 +20,6 @@
             {#Class idem que celle de bootstrap avec alert alert-danger mais version Tailwind Css#}
                 {% endif %}
 
-                <h1 class="text-center">Connectez-vous</h1>
 
             {#Champ email#}
             {# L'utilité d'utilisé {{ last_username }} dans le champs Email est que Twig permet l'echappement HTML des variables, ce qui aide à prévenir des attaques par injection de code, autrement j'aurais utilisé 'htmlspecialchars'}}#}
@@ -46,9 +47,7 @@
                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full md:w-auto" value="Connexion">
                         Connexion
                     </button>
-{#                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">#}
-                    {#Mot de passe oublié ?#}
-{#                    </a>#}
+
                 </div>
 
             </form>
@@ -59,43 +58,5 @@
 
         </div>
     </div>
-
-
-{#    {% if app.user %}#}
-{#        <div class="mb-3">#}
-{#            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>#}
-{#        </div>#}
-{#    {% endif %}#}
-
-
-    <script>
-        $(document).ready(function() {
-            // Récupérez l'icône de l'œil
-            let eyeIcon = $('<i class="fas fa-eye"></i>');
-            let eyeSlashIcon = $('<i class="fas fa-eye-slash"></i>');
-
-            // Récupérez le champ du mot de passe
-            let passwordInput = $('#inputPassword');
-
-            // Ajoutez l'icône de l'œil à côté du champ du mot de passe
-            passwordInput.after(eyeIcon);
-
-            // Fonction pour changer le type du champ entre "password" et "text"
-            function togglePasswordVisibility() {
-                let type = passwordInput.attr('type');
-                if (type === 'password') {
-                    passwordInput.attr('type', 'text');
-                    eyeIcon.replaceWith(eyeSlashIcon);
-                } else {
-                    passwordInput.attr('type', 'password');
-                    eyeSlashIcon.replaceWith(eyeIcon);
-                }
-            }
-
-            // Gérez le clic sur l'icône de l'œil pour afficher ou masquer le mot de passe
-            eyeIcon.click(togglePasswordVisibility);
-            eyeSlashIcon.click(togglePasswordVisibility);
-        });
-    </script>
 
 {% endblock %}

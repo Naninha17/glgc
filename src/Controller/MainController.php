@@ -19,9 +19,7 @@ class MainController extends AbstractController
     public function home(EnseigneRepository $enseigneRepository, ): Response
     {
 
-
         return $this->render('home.html.twig', [
-//            'form' => $enseigneRepository->findAll()
              'enseigneEdit_form' => $enseigneRepository->findAll(),
         ]);
     }
