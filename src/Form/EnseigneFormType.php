@@ -123,7 +123,7 @@ class EnseigneFormType extends AbstractType
                 ],
                 'expanded' => true, // pour afficher les choix sous forme de boutons radio
                 'multiple' => false, // pour permettre de choisir une seule couleur
-                'required' => true, // si la couleur est obligatoire, mettre true, sinon false
+                'required' => false, // si la couleur est obligatoire, mettre true, sinon false
             ])
 
 

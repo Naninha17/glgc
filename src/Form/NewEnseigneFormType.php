@@ -22,23 +22,25 @@ class NewEnseigneFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, [
-                'label' => 'Titre ',
-                'empty_data' => '', //Nécessaire quand on souhaite modifier/supprimer, afin d'éviter d'avoir une erreur 500
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de renseigner un titre',
-                    ]),
-                    new Length([
-                        'min' => 2,
-                        'max' => 150,
-                        'minMessage' => 'Le titre doit contenir au moins {{ limit }} caractères',
-                        'maxMessage' => 'Le titre doit contenir au maximum {{ limit }} caractères',
+                ->add('title', TextType::class, [
+                    'label' => 'Titre ',
+                    'required' => false, // Permet que le champ Image ne soit pas obligatoire à remplir
+                    'empty_data' => '', //Nécessaire quand on souhaite modifier/supprimer, afin d'éviter d'avoir une erreur 500
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Merci de renseigner un titre',
+                        ]),
+                        new Length([
+                            'min' => 2,
+                            'max' => 150,
+                            'minMessage' => 'Le titre doit contenir au moins {{ limit }} caractères',
+                            'maxMessage' => 'Le titre doit contenir au maximum {{ limit }} caractères',
                     ]),
                 ],
             ])
             ->add('content', CKEditorType::class, [
                 'label' => 'Contenu',
+                'required' => false, // Permet que le champ Image ne soit pas obligatoire à remplir
                 'purify_html' => true, //permet la protection des failles XSS
                 'attr' => [
                     'class' => ' d-none',
@@ -119,7 +121,7 @@ class NewEnseigneFormType extends AbstractType
                 ],
                 'expanded' => true, // pour afficher les choix sous forme de boutons radio
                 'multiple' => false, // pour permettre de choisir une seule couleur
-                'required' => true, // si la couleur est obligatoire, mettre true, sinon false
+                'required' => false, // si la couleur est obligatoire, mettre true, sinon false
             ])
             ->add('imageUrl', TextType::class, [
                 'label' => 'URL de l\'image ',
@@ -139,6 +141,7 @@ class NewEnseigneFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Enseigne::class,
+            // Le data_class définit l'entité associée au formulaire, il est lié à l'entité "Enseigne"
         ]);
     }
 

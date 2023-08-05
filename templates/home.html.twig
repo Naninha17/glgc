@@ -9,7 +9,7 @@
 
     {# Hero #}
     <div class="relative aspect-[3/1]">
-        <img src="{{ asset('images/Com&Cie_HD-55.jpg') }}" class="h-full w-full object-contain object-right" alt="">
+        <img src="{{ asset('images/Com&Cie_HD-55.jpg') }}" class="h-full w-full object-contain object-right" alt="Groupe GLGC">
 
         <div class="absolute inset-0 bg-gradient-to-r from-blue-200/70 to-blue-700/70 w-3/4 sm:w-full">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-200/70 to-blue-700/70 w-3/4 sm:w-full">
@@ -48,289 +48,164 @@
         </div>
     </div>
 
-{#    <!-- Image décorative positionnée au milieu et à cheval entre les deux sections -->#}
-{#    <section class="relative max-w-7xl mx-auto px-6 py-6 lg:px-8">#}
-{#        <img src="{{ asset('images/decoration2group.png') }}" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-70">#}
-{#    </section>#}
+    <!-- Image décorative positionnée au milieu et à cheval entre les deux sections -->
+    <section class="relative max-w-7xl mx-auto px-6 py-6 lg:px-8">
+        <img src="{{ asset('images/decoration2group.png') }}" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-70">
+    </section>
 
 
-    {% for item in enseigneEdit_form %}
+        {% for item in enseigneEdit_form %}
+            {% set colorItem = "from-yellow-500/70" %}
+            {% if item.color == "red" %}
+            {% set colorItem = "from-red-500/70" %}
+            {% elseif item.color == "green" %}
+                {% set colorItem = "from-green-500/70" %}
+            {% endif %}
 
-        {% if item.id == 10 %}
+            {% if loop.index is even %}
+
+                {#  if loop.index is even   is even = nombre paire #}
+
             {# Img/Text Com&Cie#}
             <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">
 
-            <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">
-                <div class="relative aspect-square h-full w-full object-cover bg-gray-400">
-
-                    <img class="h-full w-full object-cover" src="{{ asset('/images/profils/' ~ item.image) }}" alt="Image du groupe GLGC">
-
-                    <div class="absolute inset-0 flex justify-center">
-                        <div class="w-full max-w-[70%] bg-gradient-to-r {{ item.color|default('from-yellow-500/70') }} "></div>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <img src="{{ asset('/images/logo/' ~ item.imageLogo ) }}" alt="Logo" class="w-1/3">
-                    </div>
-                </div>
-
-                <div class="space-y-6">
-
-                    <div data-aos="fade-up"
-                         data-aos-anchorplacement="bottom-bottom">
-                        <h2 class="text-2xl uppercase">{{ item.title }}</h2> <br>
-                        <div class="text-gray-500">{{ item.content|raw }}</div>
-                        {# Le filtre |raw est nécessaire pour échapper les caractères spéciaux mais aussi pour les balises html, question de sécurité avant tout #}
-                    </div>
-
-                    <p>
-                        <a class="inline-flex gap-1 items-center" href="{{ item.imageUrl }}">
-                            {{ item.subtitle }}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-                            </svg>
-
-                        </a>
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-{#        {% elseif item.id == 12 %}#}
-{#            #}{# Img/Text Space&Cie #}
-
-{#            <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">#}
-
-{#                <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">#}
-{#                    <div class="relative aspect-square h-full w-full object-cover bg-gray-400">#}
-
-{#                        <img class="h-full w-full object-cover" src="{{ asset('/images/' ~ item.image) }}" alt="Image de fond">#}
-
-{#                        <div class="absolute inset-0 flex justify-center">#}
-{#                            <div class="w-full max-w-[70%] bg-gradient-to-r {{ item.color|default('from-yellow-500/70') }} "></div>#}
-{#                        </div>#}
-{#                        <div class="absolute inset-0 flex items-center justify-center">#}
-{#                            <img src="{{ asset('/images/' ~ item.imageLogo ) }}" alt="Logo" class="w-1/3">#}
-{#                        </div>#}
-{#                    </div>#}
-
-{#                    <div class="space-y-6">#}
-
-{#                        <div data-aos="fade-up"#}
-{#                             data-aos-anchorplacement="bottom-bottom">#}
-{#                            <h2 class="text-2xl uppercase">{{ item.title }}</h2> <br>#}
-{#                            <div class="text-gray-500">{{ item.content|raw }}</div>#}
-{#                        </div>#}
-{#                        <p>#}
-{#                            <a class="inline-flex gap-1 items-center" href="{{ item.imageUrl }}">#}
-{#                                {{ item.subtitle }}#}
-{#                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">#}
-{#                                    <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />#}
-{#                                </svg>#}
-{#                            </a>#}
-{#                        </p>#}
-{#                    </div>#}
-{#                </div>#}
-
-{#            </section>#}
-
-
-        {% elseif item.id == 11 %}
-            {# Img/Text Quadripub#}
-
-            <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">
                 <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">
+                    <div class="relative aspect-square h-full w-full object-cover bg-gray-400">
 
-                    <div class="space-y-6 md:flex-row-reverse">
-                        <div data-aos="fade-up" data-aos-anchorplacement="bottom-bottom">
+                        <img class="h-full w-full object-cover" src="{{ asset('/images/profils/' ~ item.image) }}" alt="Image du groupe GLGC">
+
+                        <div class="absolute inset-0 flex justify-center">
+                            <div class="w-full max-w-[70%] bg-gradient-to-r {{ colorItem }} "></div>:
+                                {#  {{ item.color|default('from-yellow-500/70') }} #}
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <img src="{{ asset('/images/logo/' ~ item.imageLogo ) }}" alt="Logo" class="w-1/3">
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+
+                        <div data-aos="fade-up"
+                             data-aos-anchorplacement="bottom-bottom">
                             <h2 class="text-2xl uppercase">{{ item.title }}</h2> <br>
                             <div class="text-gray-500">{{ item.content|raw }}</div>
+                            {# Le filtre |raw est nécessaire pour échapper les caractères spéciaux mais aussi pour les balises html #}
                         </div>
+
                         <p>
                             <a class="inline-flex gap-1 items-center" href="{{ item.imageUrl }}">
                                 {{ item.subtitle }}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                     <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
                                 </svg>
+
                             </a>
+
                         </p>
+
                     </div>
 
-                    <div class="relative aspect-square h-full w-full object-cover bg-gray-400">
-                        <img class="h-full w-full object-cover" src="{{ asset('/images/profils/' ~ item.image) }}" alt="Image de fond">
-                        <div class="absolute inset-0 flex justify-center">
-                            <div class="w-full max-w-[70%] bg-gradient-to-r {{ item.color|default('from-yellow-500/70') }} "></div>
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="{{ asset('/images/logo/' ~ item.imageLogo ) }}" alt="Logo" class="w-1/3">
-                        </div>
-                    </div>
                 </div>
             </section>
 
-        {% endif %}
+            {% elseif loop.index is odd %}
+{#            {% elseif item.id == 11 %}#}
+            {#  if loop.index == is odd   is odd = nombre impair  #}
 
-    {% endfor %}
+                {# Img/Text Quadripub#}
+                <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">
+                    <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">
 
-    <!-- Image décorative positionnée au milieu et à cheval entre les deux sections -->
-{#    <section class="relative max-w-7xl mx-auto px-6 py-6 lg:px-8">#}
-{#        <img src="{{ asset('images/decoration2group.png') }}" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-70">#}
-{#    </section>#}
+                        <div class="space-y-6 md:flex-row-reverse">
+                            <div data-aos="fade-up" data-aos-anchorplacement="bottom-bottom">
+                                <h2 class="text-2xl uppercase">{{ item.title }}</h2> <br>
+                                <div class="text-gray-500">{{ item.content|raw }}</div>
+                            </div>
+                            <p>
+                                <a class="inline-flex gap-1 items-center" href="{{ item.imageUrl }}">
+                                    {{ item.subtitle }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </p>
+                        </div>
 
+                        <div class="relative aspect-square h-full w-full object-cover bg-gray-400">
+                            <img class="h-full w-full object-cover" src="{{ asset('/images/profils/' ~ item.image) }}" alt="Image de fond">
+                            <div class="absolute inset-0 flex justify-center">
+                                <div class="w-full max-w-[70%] bg-gradient-to-r {{ colorItem }} "></div>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <img src="{{ asset('/images/logo/' ~ item.imageLogo ) }}" alt="Logo" class="w-1/3">
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    {# Img/Text Com&Cie#}
-{#    <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">#}
-{#        <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">#}
-{#            <div class="relative aspect-square h-full w-full object-cover bg-gray-400">#}
+            {% endif %}
 
+            {% if loop.index == 2 %}
 
-{#                <img class="h-full w-full object-cover" src="{{ asset('public/images/Com&Cie_HD-7.jpeg' ) }}" alt="">#}
+                {# Système de galerie d'image #}
+                <section class="flex justify-center items-center">
+                    <div class="flex space-x-4 my-3">
 
+                        <div id="galeries" class="flex">
 
-{#                <div class="absolute inset-0 flex justify-center">#}
-{#                    <div class="w-full max-w-[70%] bg-gradient-to-r from-yellow-500/70 to-yellow-500/70"></div>#}
-{#                </div>#}
-{#                <div class="absolute inset-0 flex items-center justify-center">#}
-{#                    <img src="{{ asset('images/Groupcomcie.png') }}" alt="Logo" class="w-1/3">#}
-{#                </div>#}
-{#            </div>#}
+                            <div class="galerie mr-4" data-open="img1max.png">
+                                <img class="shadow w-33 h-33 object-cover" src="{{ asset('images/galeries/miniatures/img1min.png') }}" alt="Galerie image 1">
+                            </div>
 
-{#            <div class="space-y-6">#}
+                            <div class="galerie mr-4" data-open="img2max.png">
+                                <img class="shadow w-33 h-33 object-cover" src="{{ asset('images/galeries/miniatures/img2min.png') }}" alt="Galerie image 2">
+                            </div>
 
-{#                <div data-aos="fade-up"#}
-{#                     data-aos-anchorplacement="bottom-bottom">#}
-{#                    <h2 class="text-2xl uppercase">Stratégie et Digital</h2> <br>#}
-{#                    <p class="text-gray-500">Spécialiste de la communication web, impression, signalétique,<br> réseaux sociaux, agencement...</p>#}
-{#                </div>#}
+                            <div class="galerie mr-4" data-open="img3max.png">
+                                <img class="shadow w-33 h-33 object-cover" src="{{ asset('images/galeries/miniatures/img3min.png') }}" alt="Galerie image 3">
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-{#                <p>#}
-{#                    <a class="inline-flex gap-1 items-center" href="https://www.cometcie.fr/">#}
-{#                        Agence de communication#}
-{#                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">#}
-{#                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />#}
-{#                        </svg>#}
+                {# Section Bannière Téméraires #}
+                <section class="relative">
+                    <div class="relative aspect-[3/1]">
+                        <img src="{{ asset('images/temerairesjpg.jpg') }}" alt="" class="w-full h-full object-cover">
 
-{#                    </a>#}
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <img src="{{ asset('images/temeraires.png') }}" alt="Logo" class="w-1/3">
+                        </div>
 
-{#                </p>#}
+                        <div class="absolute bottom-0 left-0 right-0 py-auto flex flex-col items-center justify-center">
+                            <div class="py-4">
+                                <a class="inline-flex gap-1 items-center" href="#">
+                                    Vêtements Bourguignons
+                                    <img src="{{ asset('images/Frame3.png') }}" alt="" class="w-1/4">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-{#            </div>#}
+                    <!-- Image décorative positionnée au milieu et à cheval entre les deux sections -->
+                    <section class="relative max-w-7xl mx-auto px-6 py-6 lg:px-8">
+                        <img src="{{ asset('images/decoration2group.png') }}" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-70">
+                    </section>
 
-{#        </div>#}
+                </section>
 
-{#    </section>#}
+            {% endif %}
 
-
-{#     Img/Text Quadripub#}
-{#    <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">#}
-
-{#        <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">#}
-{#            <div class="space-y-6 md:text-right"> <!-- Ajout de la classe md:text-right pour aligner le texte à droite sur grand écran -->#}
-{#                <h2 class="text-2xl uppercase">Signalétique et Impression</h2>#}
-{#                <p class="text-gray-500">Combine créativité et savoir-faire.<br> Graphistes, enseignistes, webdesigners <br> et poseurs relèvent quotidiennement vos challenges.</p>#}
-{#                <p>#}
-{#                    <a class="inline-flex gap-1 items-center" href="https://www.quadripub.com/">#}
-{#                        Quadripub#}
-{#                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">#}
-{#                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />#}
-{#                        </svg>#}
-{#                    </a>#}
-{#                </p>#}
-{#            </div>#}
-
-{#            <div class="relative aspect-square h-full w-full object-cover bg-gray-400">#}
-{#                <img class="h-full w-full object-cover" src="{{ asset('images/quadripub1.png') }}" alt="">#}
-{#                <div class="absolute inset-0 flex justify-center">#}
-{#                    <div class="w-full max-w-[70%] bg-gradient-to-r from-red-500/70 to-red-500/70"></div>#}
-{#                </div>#}
-{#                <div class="absolute inset-0 flex items-center justify-center">#}
-{#                    <img src="{{ asset('images/quadripub.png') }}" alt="Logo" class="w-1/3">#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-
-    {# Système de galerie d'image #}
-    <section class="flex justify-center items-center">
-        <div class="flex space-x-4 my-3">
-
-            <div id="galeries" class="flex">
-
-                <div class="galerie mr-4" data-open="img1max.png">
-                    <img class="shadow w-33 h-33 object-cover" src="{{ asset('images/galeries/miniatures/img1min.png') }}" alt="Galerie image 1">
-                </div>
-
-                <div class="galerie mr-4" data-open="img2max.png">
-                    <img class="shadow w-33 h-33 object-cover" src="{{ asset('images/galeries/miniatures/img2min.png') }}" alt="Galerie image 2">
-                </div>
-
-                <div class="galerie mr-4" data-open="img3max.png">
-                    <img class="shadow w-33 h-33 object-cover" src="{{ asset('images/galeries/miniatures/img3min.png') }}" alt="Galerie image 3">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {# Section Bannière Téméraires #}
-
-    <section class="relative">
-        <div class="relative aspect-[3/1]">
-            <img src="{{ asset('images/temerairesjpg.jpg') }}" alt="" class="w-full h-full object-cover">
-
-            <div class="absolute inset-0 flex items-center justify-center">
-                <img src="{{ asset('images/temeraires.png') }}" alt="Logo" class="w-1/3">
-            </div>
-
-            <div class="absolute bottom-0 left-0 right-0 py-auto flex flex-col items-center justify-center">
-                <div class="py-4">
-                    <a class="inline-flex gap-1 items-center" href="#">
-                        Vêtements Bourguignons
-                        <img src="{{ asset('images/Frame3.png') }}" alt="" class="w-1/4">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {# Img/Text Space&Cie #}
-{#        <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">#}
-
-{#            <div class="grid gap-8 md:grid-cols-2 md:items-center lg:gap-12">#}
-{#                <div class="relative aspect-square h-full w-full object-cover bg-gray-400">#}
-{#                    <img class="h-full w-full object-cover" src="{{ asset('images/Com&Cie_HD-78.jpeg') }}" alt="">#}
-{#                    <div class="absolute inset-0 flex justify-center">#}
-{#                        <div class="w-full max-w-[70%] bg-gradient-to-r from-green-600/70 to-green-600/70"></div>#}{# rgba r105 v158 B120 70% opacité héxa 699E78 pour la couleur vert de space & cie #}
-{#                    </div>#}
-{#                    <div class="absolute inset-0 flex items-center justify-center">#}
-{#                        <img src="{{ asset('images/space.png') }}" alt="Logo" class="w-1/3">#}
-{#                    </div>#}
-{#                </div>#}
-
-{#                <div class="space-y-6">#}
-{#                    <h2 class="text-2xl uppercase">Agencement et décoration</h2>#}
-{#                    <p class="text-gray-500">Réinventez votre espace de vie <br> pour un intérieur unique qui vous ressemble</p>#}
-{#                    <p>#}
-{#                        <a class="inline-flex gap-1 items-center" href="#">#}
-{#                            Agencement et déco#}
-{#                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">#}
-{#                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />#}
-{#                            </svg>#}
-
-{#                        </a>#}
-{#                    </p>#}
-{#                </div>#}
-{#            </div>#}
-
-{#        </section>#}
+        {% endfor %}
 
 
 {% for item in enseigneEdit_form %}
+    {% set colorItem = "from-red-500/70" %}
+    {% if item.color == "red" %}
+    {% endif %}
 
-    {% if item.id == 12 %}
+    {% if loop.index is odd %}
+
     {# Img/Text Space&Cie #}
 
     <section class="max-w-7xl mx-auto px-6 py-6 lg:px-8">
@@ -341,7 +216,8 @@
                 <img class="h-full w-full object-cover" src="{{ asset('/images/profils/' ~ item.image) }}" alt="Image de fond">
 
                 <div class="absolute inset-0 flex justify-center">
-                    <div class="w-full max-w-[70%] bg-gradient-to-r {{ item.color|default('from-green-500/70') }} "></div>
+                    <div class="w-full max-w-[70%] bg-gradient-to-r {{ colorItem }}"></div>
+
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
                     <img src="{{ asset('/images/logo/' ~ item.imageLogo ) }}" alt="Logo" class="w-1/3">
@@ -370,14 +246,17 @@
 
     </section>
 
-            {% endif %}
+    {% endif %}
 
-    {% endfor %}
+{% endfor %}
+
 
     {# Footer #}
     <footer class="bg-blue-500 py-4">
         <div class="container mx-auto px-4 flex flex-col items-center lg:flex-row lg:justify-between">
-            <a href="https://fr.linkedin.com/company/cometcie" class="text-blue-700 font-bold lg:ml-4">LinkedIn</a>
+            <a href="https://fr.linkedin.com/company/cometcie" class="text-blue-700 font-bold lg:ml-4">
+                <img src="{{ asset('images/367593_linkedin_business_network_social_icon.svg') }}" alt="Logo Linkedin" class="w-6 h-6 text-white">
+            </a>
 
             <div class="text-gray-700 text-sm lg:ml-4">
                 <a href="{{ path('legal_notice') }}">Mentions légales</a>

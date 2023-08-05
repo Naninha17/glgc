@@ -37,64 +37,64 @@ class AppFixtures extends Fixture
 
 
         // Création des enseignes dans la bdd
-        $cometcie = new Enseigne();
-
-        // Hydratation des enseignes
-        $cometcie
-            ->setTitle('')
-            ->setContent('')
-            ->setImage('')
-            ->setImageUrl('')
-            ->setImageLogo('')
-            ->setSubtitle('')
-            ->setColor('')
-            ->setUser( $admin )
-            ;
-
-
-        $quadripub = new Enseigne();
-
-        $quadripub
-            ->setTitle('')
-            ->setContent('')
-            ->setImage('')
-            ->setImageUrl('')
-            ->setImageLogo('')
-            ->setSubtitle('')
-            ->setColor('')
-            ->setUser( $admin )
-
-        ;
-
-
-        $spaceetcie = new Enseigne();
-
-        $spaceetcie
-            ->setTitle('')
-            ->setContent('')
-            ->setImage('')
-            ->setImageUrl('')
-            ->setImageLogo('')
-            ->setSubtitle('')
-            ->setColor('')
-            ->setUser( $admin )
-
-        ;
+//        $cometcie = new Enseigne();
+//
+//        // Hydratation des enseignes
+//        $cometcie
+//            ->setTitle('')
+//            ->setContent('')
+//            ->setImage('')
+//            ->setImageUrl('')
+//            ->setImageLogo('')
+//            ->setSubtitle('')
+//            ->setColor('')
+//            ->setUser( $admin )
+//            ;
+//
+//
+//        $quadripub = new Enseigne();
+//
+//        $quadripub
+//            ->setTitle('')
+//            ->setContent('')
+//            ->setImage('')
+//            ->setImageUrl('')
+//            ->setImageLogo('')
+//            ->setSubtitle('')
+//            ->setColor('')
+//            ->setUser( $admin )
+//
+//        ;
+//
+//
+//        $spaceetcie = new Enseigne();
+//
+//        $spaceetcie
+//            ->setTitle('')
+//            ->setContent('')
+//            ->setImage('')
+//            ->setImageUrl('')
+//            ->setImageLogo('')
+//            ->setSubtitle('')
+//            ->setColor('')
+//            ->setUser( $admin )
+//
+//        ;
 
 //        $temeraires = new Enseigne();
 //
 //        $temeraires
 //            ->setImage('')
 //            ->setImageUrl('')
-//        ->setImageLogo('')
-//        ->setSubtitle('')
+//            ->setImageLogo('')
+//            ->setSubtitle('')
 //            ->setUser( $admin )
 //            ;
 
         // Enregistrement des enseignes auprès de Doctrine
-        $manager->persist($cometcie);
-        $manager->persist($quadripub);
-        $manager->persist($spaceetcie);
+//        $manager->persist($cometcie);
+//        $manager->persist($quadripub);
+//        $manager->persist($spaceetcie);
 //        $manager->persist($temeraires);
 
 
