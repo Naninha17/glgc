@@ -74,7 +74,7 @@ class AdminController extends AbstractController
             $em->flush();
 
             // Redirige sur la route de la liste des enseignes
-            return $this->redirectToRoute('enseigne_list', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('enseigne_list');
         }
 
 

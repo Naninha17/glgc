@@ -10,7 +10,7 @@
     <div class="bg-gray-100">
 
         <div class="text-center">
-            <a href="{{ path('main_home') }}" class="text-blue-500 hover:text-blue-700 font-bold">
+            <a href="{{ path('main_home') }}" class=" hover:text-blue-700 font-bold">
                 Page GLGC
             </a>
 
@@ -24,13 +24,13 @@
         <div class="my-5 flex flex-col items-center md:flex-row md:justify-center md:space-x-4">
             <a href="{{ path('enseigne_list') }}"
                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">
-                Liste des enseignes
+                Liste des Enseignes
             </a>
 
         <div class="my-5 flex flex-col items-center md:flex-row md:justify-center md:space-x-4">
             <a href="{{ path('enseigne_new') }}"
                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">
-                Ajouter une enseignes
+                Ajouter une Enseigne
             </a>
 
 
@@ -39,21 +39,7 @@
             Mentions Légales
         </a>
 
-
-            {# BOUTON MODIFIER INUTILE#}
-            {#        {% set enseigneId = 11 %}#}
-            {#        <a href="{{ path('enseigne_edit', {'id': enseigneId}) }}"#}
-            {#           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">#}
-            {#            Modifier l'Enseigne#}
-            {#        </a>#}
-
-            {# BOUTON SUPPRIMER INUTILE #}
-{#        {% set enseigneIdToDelete = 1 %}#}
-{#        <a href="{{ path('enseigne_delete', {'id': enseigneIdToDelete}) }}"#}
-{#           class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mb-4 md:mb-0">#}
-{#            Supprimer l'Enseigne#}
-{#        </a>#}
-
     </div>
+
 
 {% endblock %}
